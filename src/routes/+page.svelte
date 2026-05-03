@@ -105,38 +105,6 @@
     text-align: center;
   }
   
-  .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: white;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-  }
-  
-  .hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-  }
-  
-  .btn-secondary {
-    background-color: transparent;
-    border: 2px solid white;
-  }
-  
-  .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
   .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -240,19 +208,6 @@
   }
   
   @media (max-width: 768px) {
-    .hero h1 {
-      font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-      font-size: 1.2rem;
-    }
-    
-    .hero-buttons {
-      flex-direction: column;
-      align-items: center;
-    }
-    
     .newsletter-form {
       flex-direction: column;
     }
@@ -260,9 +215,5 @@
     .quote {
       font-size: 1.2rem;
     }
-  }
-  a {
-    box-shadow: none!important;
-    text-shadow: none!important;
   }
 </style>

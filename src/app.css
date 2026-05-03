@@ -1,7 +1,6 @@
 @import '@fontsource/jetbrains-mono';
 @import '@fontsource/ibm-plex-sans';
 @import '@fontsource/ibm-plex-sans/700.css';
-@import '../node_modules/lucide-static/font/lucide.css';
 
 html {
 	/* font */
@@ -219,4 +218,16 @@ p {
   .hamburger {
     display: block;
   }
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }

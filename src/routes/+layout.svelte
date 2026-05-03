@@ -4,18 +4,21 @@
   import 'open-props/style'
 	import 'open-props/normalize'
 	import 'open-props/buttons'
+  import { Menu } from 'lucide-svelte';
 
   interface Props {
     children?: import('svelte').Snippet;
   }
 
   let { children }: Props = $props();
-  let isNavOpen = false;
+  let isNavOpen = $state(false);
 
   function toggleNav() {
     isNavOpen = !isNavOpen;
   }
 </script>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <header>
   <div class="container">
@@ -29,14 +32,14 @@
         <li><a href="/principles">Principles</a></li>
         <li><a href="/blog">Blog</a></li>
       </ul>
-      <button class="hamburger" on:click={toggleNav} aria-label="Toggle navigation">
-        <span class="icon-menu"></span>
+      <button class="hamburger" onclick={toggleNav} aria-label="Toggle navigation">
+        <Menu />
       </button>
     </nav>
   </div>
 </header>
 
-<main data-theme="light">
+<main id="main-content" data-theme="light">
   {@render children?.()}
 </main>
 
@@ -66,6 +69,19 @@
 <style>
   :global(h1, h2, h3, h4, h5, h6) {
     max-inline-size: none!important;
+  }
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    z-index: 1000;
+    transition: top 0.2s;
+  }
+  .skip-link:focus {
+    top: 0;
   }
   header {
     background-color: white;
@@ -103,33 +119,7 @@
     background: none;
     border: none;
     cursor: pointer;
-  }
-  
-  .hamburger-icon {
-    width: 25px;
-    height: 2px;
-    background-color: var(--accent-color);
-    display: block;
-    position: relative;
-  }
-  
-  .hamburger-icon::before,
-  .hamburger-icon::after {
-    content: '';
-    width: 25px;
-    height: 2px;
-    background-color: var(--accent-color);
-    display: block;
-    position: absolute;
-    left: 0;
-  }
-  
-  .hamburger-icon::before {
-    top: -8px;
-  }
-  
-  .hamburger-icon::after {
-    top: 8px;
+    color: var(--accent-color);
   }
   
   .nav-links.is-open {

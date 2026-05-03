@@ -31,7 +31,7 @@
       <div class="blog-posts">
         {#each posts as post}
           <article class="blog-post">
-            <img class="cover" src="/blog/covers/{post.cover}" alt="{post.alt}" style="width:100%;">
+            <img class="cover" src="/blog/covers/{post.cover}" alt="{post.alt}" style="width:100%;" loading="lazy">
             <div class="gradient"></div>
             <div class="blog-inside">
               <h2><a href={`/blog/${post.slug}`}>{post.title}</a></h2>
@@ -46,33 +46,6 @@
         {/each}
         
       </div>
-      
-      
-      <aside class="blog-sidebar">
-        <!--
-        <div class="sidebar-section">
-          <h3>Categories</h3>
-          <ul class="category-list">
-            <li><a href="#">Getting Started</a></li>
-            <li><a href="#">Home & Living</a></li>
-            <li><a href="#">Digital Life</a></li>
-            <li><a href="#">Mindfulness</a></li>
-            <li><a href="#">Sustainability</a></li>
-          </ul>
-        </div>
-        -->
-        
-        <!--
-         <div class="sidebar-section">
-          <h3>Popular Posts</h3>
-          <ul class="popular-posts">
-            <li><a href="#">5 Steps to Declutter Your Mind</a></li>
-            <li><a href="#">The One-In, Two-Out Rule</a></li>
-            <li><a href="#">Minimalist Wardrobe Essentials</a></li>
-          </ul>
-        </div>
-        -->
-      </aside>
     </div>
   </div>
 </section>
@@ -126,9 +99,12 @@
   }
   
   .blog-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
   }
   
   .blog-post {
@@ -162,41 +138,6 @@
     margin-top: 1rem;
   }
   
-  .blog-sidebar {
-    align-self: start;
-    position: sticky;
-    top: 2rem;
-  }
-  
-  .sidebar-section {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .sidebar-section h3 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-  }
-  
-  .category-list, .popular-posts {
-    list-style: none;
-  }
-  
-  .category-list li, .popular-posts li {
-    margin-bottom: 0.5rem;
-  }
-  
   @media (max-width: 768px) {
-    .blog-content {
-      grid-template-columns: 1fr;
-    }
-    
-    .blog-sidebar {
-      position: static;
-    }
   }
 </style>
